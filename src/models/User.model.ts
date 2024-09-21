@@ -3,7 +3,7 @@ import { prop } from "@typegoose/typegoose";
 
 
 export interface UserModel extends Base {}
-export default class UserModel extends TimeStamps {
+export class UserModel extends TimeStamps {
 
   @prop({type: String, unique: true, required: true})
   email: string
@@ -22,6 +22,5 @@ export default class UserModel extends TimeStamps {
 
   @prop({type: String})
   lastname: string;
-
-
 }
+
