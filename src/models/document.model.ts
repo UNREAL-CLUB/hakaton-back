@@ -1,15 +1,15 @@
 import { Base, TimeStamps } from "@typegoose/typegoose/lib/defaultClasses";
-import { prop } from "@typegoose/typegoose";
+import { prop, Ref } from "@typegoose/typegoose";
+import { UserModel } from "./User.model";
 
 
 export interface DocumentModel extends Base {}
 export class DocumentModel extends TimeStamps {
 
-  @prop({type: String})
-  owner:
+  @prop({ref: () => UserModel})
+  owner: Ref<UserModel>
 
   @prop({type: String})
   text: string;
-
 
 }
