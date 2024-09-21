@@ -7,9 +7,10 @@ import { getJwtConfig } from "../configs/jwt.config";
 import { PassportModule } from "@nestjs/passport";
 import { UserModel } from "../models/User.model";
 import { TypegooseModule } from "@m8a/nestjs-typegoose";
+import { JwtStrategy } from "./strategies/jwt.strategy";
 
 @Module({
-  providers: [AuthService],
+  providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
   imports: [
     TypegooseModule.forFeature([{

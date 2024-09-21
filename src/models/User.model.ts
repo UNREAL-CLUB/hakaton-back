@@ -2,6 +2,7 @@ import { Base, TimeStamps } from "@typegoose/typegoose/lib/defaultClasses";
 import { prop } from "@typegoose/typegoose";
 
 
+
 export interface UserModel extends Base {}
 export class UserModel extends TimeStamps {
 
@@ -15,12 +16,15 @@ export class UserModel extends TimeStamps {
   passwordHash: string;
 
   @prop({type: String})
-  name: string;
+  fullName: string;
 
-  @prop({type: String})
-  surname: string;
+  @prop({type: String, default: "/undefined-logo.png"})
+  avatarLink: string;
 
-  @prop({type: String})
-  lastname: string;
+  @prop({type: String, default: "USER"})
+  role: string;
+
+
 }
 
+type role = "ADMIN" | "USER"
