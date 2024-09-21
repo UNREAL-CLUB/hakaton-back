@@ -10,9 +10,6 @@ export class RegisterDto {
   password: string;
 
   @IsString()
-  name: string;
-
-  @IsString()
   fullName: string;
 
   @IsEmail()
