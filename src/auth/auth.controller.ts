@@ -20,7 +20,7 @@ export class AuthController {
 
   @Post('login')
   async login(@Body() dto: LoginDto) {
-    const validated = this.authService.validate(dto);
+    const validated = await this.authService.validate(dto);
     const access_token = await this.authService.login(dto);
 
     return {
